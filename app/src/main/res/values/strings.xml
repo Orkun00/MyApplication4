@@ -4,4 +4,5 @@
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
     <string name="title_joystick">Joystick</string>
+    <string name="no_video_data">No video data: Integration with a ROS2 image topic will be implemented.</string>
 </resources>

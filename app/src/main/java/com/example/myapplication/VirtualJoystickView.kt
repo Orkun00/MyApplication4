@@ -22,7 +22,7 @@ class VirtualJoystickView @JvmOverloads constructor(
     }
 
     private val knobPaint = Paint().apply {
-        color = Color.BLUE
+        color = Color.rgb(137, 11, 69)
         style = Paint.Style.FILL
         isAntiAlias = true
     }
@@ -46,9 +46,15 @@ class VirtualJoystickView @JvmOverloads constructor(
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
         // Draw joystick base
-        canvas.drawCircle(centerX, centerY, width / 3f, basePaint)
+        canvas.drawCircle(centerX, centerY, width / 2.5f, basePaint)
         // Draw joystick knob
         canvas.drawCircle(knobX, knobY, width / 6f, knobPaint)
+    }
+    override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
+        super.onSizeChanged(w, h, oldw, oldh)
+        // Center the knob when the view is first measured
+        knobX = centerX
+        knobY = centerY
     }
 
     override fun onTouchEvent(event: MotionEvent): Boolean {

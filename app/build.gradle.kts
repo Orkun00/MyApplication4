@@ -39,10 +39,7 @@ android {
 }
 
 dependencies {
-    // ROS 2 Java libraries (replace with your actual dependencies)
 
-
-    // Virtual Joystick library (if from JitPack or local module)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
