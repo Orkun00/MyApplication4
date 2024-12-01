@@ -16,6 +16,10 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        maven {
+            url = uri("https://jcenter.bintray.com/")
+            url = uri("https://github.com/ros2-java/ros2_java/releases/download/latest/repository/")
+        }
     }
 }
 
