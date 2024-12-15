@@ -11,11 +11,44 @@
         android:label="@string/title_home"
         tools:layout="@layout/fragment_home" />
 
+    <!-- Dashboard Fragment -->
     <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="com.example.myapplication.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+            android:id="@+id/navigation_dashboard"
+            android:name="com.example.myapplication.ui.dashboard.DashboardFragment"
+            android:label="@string/title_dashboard"
+            tools:layout="@layout/fragment_dashboard">
+        <!-- Navigation action to ItemDetailFragment -->
+        <action
+                android:id="@+id/action_navigation_dashboard_to_itemDetailFragment"
+                app:destination="@id/itemDetailFragment" />
+    </fragment>
+
+    <!-- ItemDetailFragment with arguments -->
+    <fragment
+            android:id="@+id/itemDetailFragment"
+            android:name="com.example.myapplication.ui.dashboard.ItemDetailFragment"
+            android:label="@string/title_item_detail"
+            tools:layout="@layout/fragment_item_detail">
+        <!-- Arguments for ItemDetailFragment -->
+        <argument
+                android:name="itemTitle"
+                app:argType="string" />
+        <argument
+                android:name="itemId"
+                app:argType="string" />
+        <argument
+                android:name="itemTemperature"
+                app:argType="string" />
+        <argument
+                android:name="itemPosition"
+                app:argType="string" />
+        <argument
+                android:name="itemVelocity"
+                app:argType="string" />
+        <action
+                android:id="@+id/action_itemDetailFragment_to_navigation_dashboard"
+                app:destination="@id/navigation_dashboard" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_Joystick"

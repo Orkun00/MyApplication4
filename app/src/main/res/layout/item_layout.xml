@@ -4,8 +4,11 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/rounded_background"
+        android:layout_margin="8dp"
         android:padding="16dp"
         tools:context=".adapter.ItemAdapter">
+
 
     <!-- Title -->
     <TextView
@@ -13,9 +16,23 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="Item Title"
-            android:textSize="18sp"
+            android:textColor="#333333"
+            android:textSize="25sp"
+            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Id -->
+    <TextView
+            android:id="@+id/itemId"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Item Id"
+            android:textColor="#333333"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/itemTitle"
             app:layout_constraintEnd_toEndOf="parent" />
 
     <!-- Temperature -->
@@ -24,9 +41,10 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="Temperature"
-            android:textSize="14sp"
+            android:textColor="#333333"
+            android:textSize="18sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/itemTitle"
+            app:layout_constraintTop_toBottomOf="@id/itemId"
             app:layout_constraintEnd_toEndOf="parent" />
 
     <!-- Position -->
@@ -35,7 +53,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="Position"
-            android:textSize="14sp"
+            android:textSize="18sp"
+            android:textColor="#333333"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/itemTemperature"
             app:layout_constraintEnd_toEndOf="parent" />
@@ -46,7 +65,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="Velocity"
-            android:textSize="14sp"
+            android:textSize="18sp"
+            android:textColor="#333333"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/itemPosition"
             app:layout_constraintEnd_toEndOf="parent" />

@@ -4,6 +4,6 @@ data class Item(
     val id: Int,
     val title: String,
     val temperature: Double,
-    val position: String,  // You can change this to Double if needed
+    val position: String,
     val velocity: Double
 )

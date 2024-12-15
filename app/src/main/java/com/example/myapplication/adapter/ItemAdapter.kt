@@ -13,6 +13,7 @@ class ItemAdapter(private val itemList: List<Item>, private val onClick: (Item) 
     // ViewHolder class to hold references to the item views
     class ItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val title: TextView = itemView.findViewById(R.id.itemTitle)
+        val id: TextView = itemView.findViewById(R.id.itemId)
         val temperature: TextView = itemView.findViewById(R.id.itemTemperature)
         val position: TextView = itemView.findViewById(R.id.itemPosition)
         val velocity: TextView = itemView.findViewById(R.id.itemVelocity)
@@ -29,6 +30,7 @@ class ItemAdapter(private val itemList: List<Item>, private val onClick: (Item) 
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         val currentItem = itemList[position]
         holder.title.text = currentItem.title
+        holder.id.text = "Id: ${currentItem.id}"
         holder.temperature.text = "Temperature: ${currentItem.temperature}°C"
         holder.position.text = "Position: ${currentItem.position}"
         holder.velocity.text = "Velocity: ${currentItem.velocity} m/s"
