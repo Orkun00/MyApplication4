@@ -1,11 +1,12 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
-    // Add the navigation-safe-args plugin
-    id("androidx.navigation.safeargs.kotlin")
+    // Navigation-safe-args plugin
+    alias(libs.plugins.androidx.navigation.safe.args)  // Safe Args plugin
 }
 
 android {
+
     namespace = "com.example.myapplication"
     compileSdk = 35
 
@@ -40,14 +41,12 @@ android {
 
     buildFeatures {
         viewBinding = true
+        dataBinding = true
     }
+
 }
 
 dependencies {
-
-    // Navigation component
-    implementation("androidx.navigation:navigation-fragment-ktx:2.5.0")
-    implementation("androidx.navigation:navigation-ui-ktx:2.5.0")
 
     // Other dependencies
     implementation(libs.androidx.core.ktx)
@@ -56,8 +55,8 @@ dependencies {
     implementation(libs.androidx.constraintlayout)
     implementation(libs.androidx.lifecycle.livedata.ktx)
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
-    implementation(libs.androidx.navigation.fragment.ktx)
-    implementation(libs.androidx.navigation.ui.ktx)
+    implementation(libs.androidx.navigation.fragment.ktx) // Navigation fragment dependency
+    implementation(libs.androidx.navigation.ui.ktx) // Navigation UI dependency
 
     // Test dependencies
     testImplementation(libs.junit)

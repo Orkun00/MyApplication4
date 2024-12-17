@@ -36,7 +36,7 @@ class DashboardFragment : Fragment() {
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
         // Initialize the Adapter
-        itemAdapter = ItemAdapter(emptyList()) { item ->
+        itemAdapter = ItemAdapter { item ->
             // Handle item click by navigating to ItemDetailFragment
             val action = DashboardFragmentDirections
                 .actionNavigationDashboardToItemDetailFragment(
@@ -54,19 +54,8 @@ class DashboardFragment : Fragment() {
 
         // Observe the LiveData from ViewModel and update the adapter's data
         dashboardViewModel.itemList.observe(viewLifecycleOwner) { items ->
-            // Update adapter with the new data
-            itemAdapter = ItemAdapter(items) { item ->
-                val action = DashboardFragmentDirections
-                    .actionNavigationDashboardToItemDetailFragment(
-                        item.title,
-                        item.id.toString(),
-                        item.temperature.toString(),
-                        item.position,
-                        item.velocity.toString()
-                    )
-                findNavController().navigate(action)
-            }
-            recyclerView.adapter = itemAdapter
+            // Submit new list to ListAdapter for efficient updating
+            itemAdapter.submitList(items)
         }
 
         // Call the loadItems() method to load data

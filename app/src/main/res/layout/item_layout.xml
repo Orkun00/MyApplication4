@@ -1,74 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/rounded_background"
-        android:layout_margin="8dp"
-        android:padding="16dp"
-        tools:context=".adapter.ItemAdapter">
+        xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+        <!-- Declare an item variable to bind data -->
+        <variable
+                name="item"
+                type="com.example.myapplication.model.Item" />
+    </data>
 
-    <!-- Title -->
-    <TextView
-            android:id="@+id/itemTitle"
-            android:layout_width="0dp"
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Item Title"
-            android:textColor="#333333"
-            android:textSize="25sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            android:padding="16dp"
+            android:layout_margin="8dp"
+            android:background="@drawable/rounded_background">
 
-    <!-- Id -->
-    <TextView
-            android:id="@+id/itemId"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="Item Id"
-            android:textColor="#333333"
-            android:textSize="18sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/itemTitle"
-            app:layout_constraintEnd_toEndOf="parent" />
+        <!-- Title -->
+        <TextView
+                android:id="@+id/itemTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@{item.title}"
+                android:textColor="#333333"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- Temperature -->
-    <TextView
-            android:id="@+id/itemTemperature"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="Temperature"
-            android:textColor="#333333"
-            android:textSize="18sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/itemId"
-            app:layout_constraintEnd_toEndOf="parent" />
+        <!-- Id -->
+        <TextView
+                android:id="@+id/itemId"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@{`Id: ` + item.id}"
+                android:textColor="#333333"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/itemTitle"
+                app:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- Position -->
-    <TextView
-            android:id="@+id/itemPosition"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="Position"
-            android:textSize="18sp"
-            android:textColor="#333333"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/itemTemperature"
-            app:layout_constraintEnd_toEndOf="parent" />
+        <!-- Temperature -->
+        <TextView
+                android:id="@+id/itemTemperature"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@{`Temperature: ` + item.temperature + `°C`}"
+                android:textColor="#333333"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/itemId"
+                app:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- Velocity -->
-    <TextView
-            android:id="@+id/itemVelocity"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="Velocity"
-            android:textSize="18sp"
-            android:textColor="#333333"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/itemPosition"
-            app:layout_constraintEnd_toEndOf="parent" />
+        <!-- Position -->
+        <TextView
+                android:id="@+id/itemPosition"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@{`Position: ` + item.position}"
+                android:textSize="18sp"
+                android:textColor="#333333"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/itemTemperature"
+                app:layout_constraintEnd_toEndOf="parent" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <!-- Velocity -->
+        <TextView
+                android:id="@+id/itemVelocity"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@{`Velocity: ` + item.velocity + ` m/s`}"
+                android:textSize="18sp"
+                android:textColor="#333333"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/itemPosition"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
+
