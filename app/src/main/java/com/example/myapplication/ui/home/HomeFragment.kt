@@ -117,7 +117,7 @@ class HomeFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null // Prevent access to binding
-        webSocket.close(1000, null) // Close the WebSocket connection
+
     }
 
 }

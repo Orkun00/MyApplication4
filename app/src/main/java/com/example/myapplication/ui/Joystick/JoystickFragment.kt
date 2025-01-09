@@ -64,6 +64,7 @@ class JoystickFragment : Fragment() {
         val request = Request.Builder()
             .url("ws://10.200.40.97:9090") // Update with your WebSocket URL
             .build()
+
         webSocket = client.newWebSocket(request, object : WebSocketListener() {
             override fun onOpen(webSocket: WebSocket, response: Response) {
                 Log.d("JoystickFragment", "WebSocket connected successfully")
@@ -71,18 +72,24 @@ class JoystickFragment : Fragment() {
 
             override fun onFailure(webSocket: WebSocket, t: Throwable, response: Response?) {
                 Log.e("JoystickFragment", "WebSocket connection failed: ${t.message}", t)
-                lifecycleScope.launch {
-                    reconnectToRosBridge() // Attempt to reconnect
-                }
+                reconnectToRosBridge() // Attempt to reconnect
+            }
+
+            override fun onClosed(webSocket: WebSocket, code: Int, reason: String) {
+                Log.e("JoystickFragment", "WebSocket closed: $reason")
+                reconnectToRosBridge() // Attempt to reconnect after closure
             }
         })
     }
 
-    private suspend fun reconnectToRosBridge() {
-        delay(3000) // Wait 3 seconds before reconnecting
-        Log.d("JoystickFragment", "Attempting to reconnect to ROS bridge...")
-        connectToRosBridge()
+    private fun reconnectToRosBridge() {
+        lifecycleScope.launch {
+            delay(3000) // Wait 3 seconds before reconnecting
+            Log.d("JoystickFragment", "Reconnecting to ROS bridge...")
+            connectToRosBridge()
+        }
     }
+
 
     private fun updateJoystickData(x: Float, y: Float) {
         // Cancel any existing job
