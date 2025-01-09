@@ -11,9 +11,10 @@ constraintlayout = "2.2.0"
 lifecycleLivedataKtx = "2.8.7"
 lifecycleViewmodelKtx = "2.8.7"
 navigation = "2.8.3"
-ros2_java = "1.0.0"
-virtualjoystick = "1.0.0"
-
+okhttp = "4.9.3"
+firebase-bom = "32.0.0"
+google-services = "4.3.15"
+firebase-auth = "21.1.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -27,10 +28,10 @@ androidx-lifecycle-livedata-ktx = { group = "androidx.lifecycle", name = "lifecy
 androidx-lifecycle-viewmodel-ktx = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx", version.ref = "lifecycleViewmodelKtx" }
 androidx-navigation-fragment-ktx = { module = "androidx.navigation:navigation-fragment-ktx", version.ref = "navigation" }
 androidx-navigation-ui-ktx = { module = "androidx.navigation:navigation-ui-ktx", version.ref = "navigation" }
-
-ros2_java = { module = "org.ros2:ros2_java", version.ref = "ros2_java" }
-virtualjoystick = { module = "com.github.controlwear:virtualjoystick", version.ref = "virtualjoystick" }
-
+okhttp = { module = "com.squareup.okhttp3:okhttp", version.ref = "okhttp" }
+firebase-bom = { module = "com.google.firebase:firebase-bom", version.ref = "firebase-bom" }
+firebase-auth = { module = "com.google.firebase:firebase-auth", version.ref = "firebase-auth" }
+google-services = { module = "com.google.gms:google-services", version.ref = "google-services" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

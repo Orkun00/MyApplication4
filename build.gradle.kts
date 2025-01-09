@@ -4,17 +4,12 @@ plugins {
     alias(libs.plugins.android.application) apply false
     alias(libs.plugins.kotlin.android) apply false
     alias(libs.plugins.androidx.navigation.safe.args) apply false
+    id("com.google.gms.google-services") version "4.4.2" apply false
 }
 
-//buildscript {
-//    repositories {
-//        google()
-//        mavenCentral()
-//    }
-//    dependencies {
-//        // Add the Safe Args plugin classpath here
-//        classpath("androidx.navigation:navigation-safe-args-gradle-plugin:2.5.0")
-//    }
-//}
 
-
+buildscript {
+    dependencies {
+        classpath(libs.google.services)
+    }
+}

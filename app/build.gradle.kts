@@ -1,8 +1,11 @@
 plugins {
+
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     // Navigation-safe-args plugin
     alias(libs.plugins.androidx.navigation.safe.args)  // Safe Args plugin
+    id("com.google.gms.google-services") // Apply Google Services plugin
+
 }
 
 android {
@@ -57,8 +60,9 @@ dependencies {
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
     implementation(libs.androidx.navigation.fragment.ktx) // Navigation fragment dependency
     implementation(libs.androidx.navigation.ui.ktx) // Navigation UI dependency
-
-    // Test dependencies
+    implementation(libs.okhttp)
+    implementation(platform(libs.firebase.bom))
+    implementation(libs.firebase.auth)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
